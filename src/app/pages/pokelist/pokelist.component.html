@@ -1,0 +1,48 @@
+<body>
+    <div class="segment">
+        <ion-segment [(ngModel)]="segmentValue">
+            <ion-segment-button value="grid">
+                <ion-icon name="grid-outline"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="list">
+                <ion-icon name="list-outline"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+    </div>
+    <div class="grid" *ngIf="segmentValue == 'grid'">
+        <div class="card" *ngFor="let pkm of pokemons">
+            <ion-card>
+                    <img [src]="pkm.sprites.front_default" /><br/>
+                    <hr>
+                    <ion-card-header>
+                        <ion-card-title>
+                            {{pkm.name | titlecase}}
+                        </ion-card-title>
+                        <ion-card-subtitle>
+                            Type: {{pkm.types[0].type.name | titlecase}}
+                        </ion-card-subtitle>
+                        <ion-card-content>
+                            <p>> HP: {{pkm.stats[0].base_stat}}</p>
+                            <p>> Attack: {{pkm.stats[1].base_stat}}</p>
+                            <p>> Defense: {{pkm.stats[2].base_stat}}</p>
+                            <p>> Speed: {{pkm.stats[5].base_stat}}</p>
+                        </ion-card-content>
+                    </ion-card-header>
+            </ion-card>
+
+        </div>
+    </div>
+    <div *ngIf="segmentValue == 'list'">
+        <div class="list" *ngFor="let pkm of pokemons">
+            <ion-list>
+                <ion-item lines="nones" button>
+                    <ion-avatar slot="start">
+                        <img [src]="pkm.sprites.front_default"/>
+                    </ion-avatar>
+                    <p>{{pkm.name | titlecase}}</p>
+                    <ion-icon name="caret-forward-outline" slot="end"></ion-icon>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+</body>

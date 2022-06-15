@@ -1,0 +1,40 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+}
+
+.list{
+    margin: 0 auto;
+    width: 40%;
+}
+
+ion-list{
+    overflow-y: auto;
+}
+
+*{
+    overflow: auto;
+}
+
+ion-avatar{
+    overflow: hidden;
+}
+
+p{
+    text-decoration: black;
+}
+
+hr{
+    border: 0;
+    clear: both;
+    display: block;
+    width: 95%;               
+    background-color: black;
+    height: 1px;
+}
+
+img{
+    display: block;
+    margin: 0px auto;
+    width: 40%;
+}

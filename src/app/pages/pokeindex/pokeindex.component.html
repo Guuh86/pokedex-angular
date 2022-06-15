@@ -1,0 +1,27 @@
+<div class="searchBox">
+    <h4>Digite o pokémon que deseja capturar!</h4>
+    <form>
+        <div class="inputBox">
+            <ion-input
+            [(ngModel)]="pokemonName"
+            [ngModelOptions]="{standalone: true}"
+            (ngModelChange)="pokemonName = $event.toLowerCase()"
+            ></ion-input>
+        </div>
+        <ion-button (click)="getPokemonWithName()">POKEBUSCA!</ion-button>
+        <p>
+            Confira a
+            <a [routerLink]="['/pokelist']">lista completa</a>
+            de pokémons
+        </p>
+    </form>
+</div>
+
+<div class="searchResult" *ngFor="let pkm of pokemon">
+    <ion-card>
+        <img [src]="pkm.sprites.front_default">
+        <ion-label>
+            {{pkm.name | titlecase}}
+        </ion-label>
+    </ion-card>
+</div>
