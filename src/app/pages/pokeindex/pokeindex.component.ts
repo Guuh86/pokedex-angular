@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { PokemodalComponent } from 'src/app/modal/pokemodal/pokemodal.component';
+
 
 @Component({
   selector: 'app-pokeindex',
@@ -11,13 +10,12 @@ import { PokemodalComponent } from 'src/app/modal/pokemodal/pokemodal.component'
 export class PokeindexComponent implements OnInit {
 
   pokemonName: string = '';
-  pokemon: any[] = [];
+  @Input() pokemon: any[] = [];
 
   isLoading: boolean = true;
 
   constructor(
-    private data: PokemonService,
-    private dialog: MatDialog
+    private data: PokemonService
   ) { }
 
   ngOnInit(): void {
